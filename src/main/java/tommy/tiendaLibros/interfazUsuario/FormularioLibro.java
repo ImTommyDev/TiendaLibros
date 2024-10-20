@@ -14,12 +14,26 @@ public class FormularioLibro extends JFrame {
     LibroServicio libroServicio;
     private JPanel panel;
     private JTable tablaLibros;
+    private JLabel libroLabel;
+    private JTextField libroTexto;
+    private JLabel autorLabel;
+    private JTextField autorTexto;
+    private JLabel precioLabel;
+    private JTextField precioTexto;
+    private JLabel existenciasLabel;
+    private JTextField existenciasTexto;
+    private JButton addButton;
+    private JButton updateButton;
+    private JButton deleteButton;
     private DefaultTableModel tablaModeloLibros;
 
     @Autowired
     public FormularioLibro(LibroServicio libroServicio){
         this.libroServicio = libroServicio;
         iniciarFormulario();
+        addButton.addActionListener(e -> {
+
+        });
     }
 
     private void iniciarFormulario(){
@@ -36,9 +50,29 @@ public class FormularioLibro extends JFrame {
 
     private void createUIComponents() {
         this.tablaModeloLibros = new DefaultTableModel(0,5);
-        String[] nombreColumnas = {"Id","Libro","Autor","Precio","Existencias"};
+        String[] nombreColumnas = {"Id","libroLabel","Autor","Precio","Existencias"};
         this.tablaModeloLibros.setColumnIdentifiers(nombreColumnas);
 
         this.tablaLibros = new JTable(tablaModeloLibros);
+
+        listarLibros();
+    }
+
+    private void listarLibros(){
+        //Limpiamos la tabla
+        tablaModeloLibros.setRowCount(0);
+        //Obtenemos los libros
+        var libros = libroServicio.mostrarLibros();
+        libros.forEach((libro) -> {
+            //Por cada libroLabel de la base de datos, rellenamos las columnas
+            Object[] lineaLibro = {
+                    libro.getIdLibro(),
+                    libro.getNombreLibro(),
+                    libro.getAutorLibro(),
+                    libro.getPrecioLibro(),
+                    libro.getCantidadLibro()
+            };
+            this.tablaModeloLibros.addRow(lineaLibro);
+        });
     }
 }
