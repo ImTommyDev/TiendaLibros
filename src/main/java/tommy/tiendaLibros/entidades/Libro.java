@@ -27,10 +27,6 @@ public class Libro {
         return idLibro;
     }
 
-    public void setIdLibro(Integer idLibro) {
-        this.idLibro = idLibro;
-    }
-
     public String getNombreLibro() {
         return nombreLibro;
     }
