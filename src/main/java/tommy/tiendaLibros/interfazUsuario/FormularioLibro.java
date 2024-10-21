@@ -70,11 +70,19 @@ public class FormularioLibro extends JFrame {
     private void createUIComponents() {
 
         //Creamos un elemento IdTexto oculto
-        this.tablaModeloLibros = new DefaultTableModel(0,5);
+        this.tablaModeloLibros = new DefaultTableModel(0,5){
+           @Override
+           public boolean isCellEditable(int row,int column){
+               return false;
+           }
+        };
         String[] nombreColumnas = {"Id","libroLabel","Autor","Precio","Existencias"};
         this.tablaModeloLibros.setColumnIdentifiers(nombreColumnas);
 
         this.tablaLibros = new JTable(tablaModeloLibros);
+
+        //Evitar que se seleccionen varios registros
+        tablaLibros.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 
         listarLibros();
     }
