@@ -50,6 +50,9 @@ public class FormularioLibro extends JFrame {
         updateButton.addActionListener(e -> {
             updateLibro();
         });
+        deleteButton.addActionListener(e -> {
+            deleteLibro();
+        });
     }
 
     private void iniciarFormulario(){
@@ -148,6 +151,26 @@ public class FormularioLibro extends JFrame {
             libroServicio.guardarLibro(libro);
             mostrarMensaje("Se ha modificado el libro correctamente");
             listarLibros();
+        }
+    }
+
+    private void deleteLibro(){
+        if(this.idTexto.getText().equals("")){
+            mostrarMensaje("Debes seleccionar el libro que quieres eliminar");
+        }else{
+            //Llenamos el objeto libro
+            int idLibro = Integer.parseInt(idTexto.getText());
+            var nombreLibro = libroTexto.getText();
+            var nombreAutor = autorTexto.getText();
+            var precioLibro = Double.parseDouble(precioTexto.getText());
+            var existencias = Integer.parseInt(existenciasTexto.getText());
+
+            var libro = new Libro(idLibro, nombreLibro, nombreAutor, precioLibro, existencias);
+
+            libroServicio.eliminarLibro(libro);
+            mostrarMensaje("El libro se ha eliminado correctamente");
+            listarLibros();
+            limpiarFormulario();
         }
     }
 
