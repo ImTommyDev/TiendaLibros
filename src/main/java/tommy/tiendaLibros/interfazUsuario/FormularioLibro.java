@@ -58,7 +58,6 @@ public class FormularioLibro extends JFrame {
     private void iniciarFormulario(){
         setContentPane(panel);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setVisible(true);
         setSize(800,800);
         Toolkit toolkit = Toolkit.getDefaultToolkit();
         Dimension dimensionPantalla = toolkit.getScreenSize();

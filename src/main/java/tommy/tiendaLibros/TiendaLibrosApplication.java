@@ -5,6 +5,7 @@ import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ConfigurableApplicationContext;
+import tommy.tiendaLibros.interfazUsuario.FormularioInicioSesion;
 import tommy.tiendaLibros.interfazUsuario.FormularioLibro;
 
 import java.awt.*;
@@ -20,8 +21,8 @@ public class TiendaLibrosApplication {
 
 		EventQueue.invokeLater(() ->{
 			//Obtengo el objeto formulario a través de spring
-			FormularioLibro formularioLibro = contextoString.getBean(FormularioLibro.class);
-			formularioLibro.setVisible(true);
+			FormularioInicioSesion formularioInicioSesion = contextoString.getBean(FormularioInicioSesion.class);
+			formularioInicioSesion.setVisible(true);
 		});
 
 	}

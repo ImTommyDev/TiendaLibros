@@ -22,9 +22,6 @@ public class Usuario {
     String emailUsuario;
     String passwordUsuario;
 
-    public Usuario() {
-    }
-
     public Usuario(String emailUsuario, Integer idUsuario, String nombreUsuario, String passwordUsuario) {
         this.emailUsuario = emailUsuario;
         this.idUsuario = idUsuario;
