@@ -4,8 +4,8 @@ import org.springframework.stereotype.Component;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 @Component
 public class FormularioInicioSesion extends JFrame{
@@ -18,17 +18,24 @@ public class FormularioInicioSesion extends JFrame{
     private JButton registroButton;
     private JLabel correoLabel;
     private JLabel passwdLabel;
+    private final FormularioRegistro formularioRegistro = new FormularioRegistro();
 
     public FormularioInicioSesion() {
         iniciarFormulario();
         mostrarPasswd.addActionListener(e -> mostrarOcultarPasswd());
-        registroButton.addActionListener(e -> {
-          accerderFromRegistro();
+        registroButton.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                    accerderFromRegistro();
+            }
         });
     }
 
     private void accerderFromRegistro() {
-        //TODO: Código para acceder al formulario de registro
+        // Mostramos el formulario de registro
+        this.setVisible(false);
+        formularioRegistro.setVisible(true);
+
     }
 
     private void mostrarOcultarPasswd() {
@@ -44,6 +51,8 @@ public class FormularioInicioSesion extends JFrame{
     }
 
     private void iniciarFormulario(){
+
+        setTitle("Iniciar sesión");
         // Configuramos el panel con GridBagLayout
         panel = new JPanel(new GridBagLayout());
         GridBagConstraints constraints = new GridBagConstraints();
@@ -95,7 +104,7 @@ public class FormularioInicioSesion extends JFrame{
 
         // Ajustes de la ventana
         setContentPane(panel);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setSize(400, 300);
         setVisible(true);
         // Centrar la ventana

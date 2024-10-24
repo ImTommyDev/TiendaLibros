@@ -56,6 +56,7 @@ public class FormularioLibro extends JFrame {
     }
 
     private void iniciarFormulario(){
+        setTitle("Lista de libros disponibles");
         setContentPane(panel);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(800,800);

@@ -6,12 +6,10 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 @Entity
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
 @ToString
 public class Libro {
@@ -22,6 +20,13 @@ public class Libro {
     String autorLibro;
     Double precioLibro;
     Integer cantidadLibro;
+
+    public Libro(int idLibro, String nombreLibro, String nombreAutor, double precioLibro, int existencias) {
+    }
+
+    public Libro() {
+
+    } //Me daba errores al poner la anotación @NoArgsConstructor
 
     public Integer getIdLibro() {
         return idLibro;
