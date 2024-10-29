@@ -4,13 +4,11 @@
 
 ## 🚀 Características
 
+- 👤 **Gestión de usuarios**: registrar usuarios y accedaer a la aplicación con estos.
 - 📖 **Gestión de libros**: añadir, editar, eliminar y listar libros.
-- 🔍 **Búsqueda y filtrado**: buscar libros por título, autor, categoría o ISBN.
 - 💻 **Interfaz gráfica**: una interfaz sencilla y amigable creada con Java Swing.
 - ⚙️ **Backend con Spring Boot**: gestión del backend y la lógica de negocio para un rendimiento óptimo.
 - 🗄️ **Base de datos con MySQL**: almacenamiento persistente de los datos de los libros.
-  
-*Nota: En futuras versiones se planea añadir la gestión de clientes y ventas.*
 
 ## 🛠️ Tecnologías utilizadas
 
