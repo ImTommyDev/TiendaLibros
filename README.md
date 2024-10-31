@@ -4,7 +4,6 @@
 
 ## 🚀 Características
 
-- 👤 **Gestión de usuarios**: registrar usuarios y accedaer a la aplicación con estos.
 - 📖 **Gestión de libros**: añadir, editar, eliminar y listar libros.
 - 💻 **Interfaz gráfica**: una interfaz sencilla y amigable creada con Java Swing.
 - ⚙️ **Backend con Spring Boot**: gestión del backend y la lógica de negocio para un rendimiento óptimo.
